@@ -24,6 +24,7 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextField;
+import java.awt.Color;
 
 public class Main extends JFrame {
 
@@ -59,7 +60,7 @@ public class Main extends JFrame {
 	public Main() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 814, 586);
+		setBounds(100, 100, 1016, 758);
 		contentPane = new JPanel();
 		contentPane.setBackground(UIManager.getColor("Button.darkShadow"));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -108,38 +109,9 @@ public class Main extends JFrame {
 		mntmNewMenuItem_3.setFont(new Font("Roboto Thin", Font.BOLD, 19));
 		mnHjlp.add(mntmNewMenuItem_3);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(31, 312, 196, 149);
-		contentPane.add(scrollPane_1);
-		
-		
-		table = new JTable();
-		table.setFont(new Font("Roboto", Font.PLAIN, 17));
-		scrollPane_1.setViewportView(table);
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"Carl  Carlsson"},
-				{"Lenny Lennyson"},
-				{"2"},
-				{"2"},
-				{"2"},
-				{"2"},
-				{"2"},
-				{"2"},
-				{"2"},
-				{"2"},
-				{"2"},
-				{"2"},
-				{"2"},
-			},
-			new String[] {
-				"Members"
-			}
-		));
-		
 		JPanel panel = new JPanel();
-		panel.setBackground(UIManager.getColor("Button.shadow"));
-		panel.setBounds(275, 82, 502, 432);
+		panel.setBackground(new Color(173, 216, 230));
+		panel.setBounds(267, 161, 502, 432);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -260,16 +232,54 @@ public class Main extends JFrame {
 		panel.add(textField_2);
 		textField_2.setColumns(10);
 		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(29, 444, 196, 149);
+		contentPane.add(scrollPane_1);
+		
+		
+		table = new JTable();
+		scrollPane_1.setViewportView(table);
+		table.setFont(new Font("Roboto", Font.PLAIN, 17));
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"Carl  Carlsson"},
+				{"Lenny Lennyson"},
+				{"Bill Billsson"},
+				{"Johnny John"},
+				{"Peter Peterson"},
+				{"Mr Mister"},
+				{"Hans Gruber"},
+				{"E Wilson"},
+				{"Lester "},
+				{"Walter "},
+				{"Saul"},
+				{"Phill"},
+				{"Dylan"},
+			},
+			new String[] {
+				"Members"
+			}
+		));
+		
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(31, 82, 141, 162);
+		lblNewLabel_1.setBounds(29, 80, 143, 162);
 		contentPane.add(lblNewLabel_1);
 		lblNewLabel_1.setIcon(new ImageIcon(Main.class.getResource("/img/Untitled-1.png")));
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(Main.class.getResource("/img/Gym (1).jpg")));
-		label.setBounds(0, 59, 808, 487);
+		label.setBounds(0, 59, 995, 659);
 		contentPane.add(label);
 		
+		
+		
+	}
+	public enum activities{
+		Running, 
+		Cycling,
+		Swimming,
+		Other,
+		Spinning,
 	}
 }
