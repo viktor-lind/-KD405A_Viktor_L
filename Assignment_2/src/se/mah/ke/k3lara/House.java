@@ -7,6 +7,7 @@ public class House {
 	private int yearBuilt;
 	private int size;
 	private final int minSize = 10;
+	private int maxSize = 1001;
 	private boolean areaOk = false;
 	private boolean yearOk = false;
 	private String line;
@@ -45,13 +46,13 @@ public class House {
 	}
 	private boolean _checkArea()
 	{
-		if(size < minSize)
+		if(size > minSize && size < maxSize)
 		{
-			areaOk = false;
+			areaOk = true;
 		}
 		else
 		{
-			areaOk = true;
+			areaOk = false;
 		}
 		return areaOk;
 		
