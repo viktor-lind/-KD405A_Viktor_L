@@ -57,7 +57,7 @@ public class HouseGUI extends JFrame {
 		textArea.setRows(50);
 		textArea.setEditable(false);
 		scrollPane.setViewportView(textArea);
-		House house1 = new House(1900, 100);
+		House house1 = new House(1900, 800);
 		House house2 = new House(1920, 980);
 		House house3 = new House(2000, 1000);
 		System.out.println("ett hus byggt " + house1.getYearBuilt() + " som är " + house1.getSize());

@@ -17,7 +17,7 @@ import java.awt.Font;
 public class Main extends JFrame {
 
 	private JPanel contentPane;
-	Calculator myCalculator;
+	private Calculator myCalculator;
 
 	/**
 	 * Launch the application.

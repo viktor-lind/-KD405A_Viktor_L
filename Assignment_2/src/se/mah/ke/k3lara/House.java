@@ -7,7 +7,7 @@ public class House {
 	private int yearBuilt;
 	private int size;
 	private final int minSize = 10;
-	private int maxSize = 1001;
+	private final int maxSize = 1001;
 	private boolean areaOk = false;
 	private boolean yearOk = false;
 	private String line;
@@ -22,7 +22,7 @@ public class House {
 	{
 		if(_checkYear() == false)
 		{
-			JOptionPane.showInputDialog(null, "NOOOO!");
+			JOptionPane.showMessageDialog(null, "Your house must be built between 1800 and 2015");
 		}
 		return yearBuilt;
 		
@@ -33,7 +33,8 @@ public class House {
 	{
 		if(_checkArea() == false)
 		{
-			JOptionPane.showInputDialog(null, "House area is too small");
+			size = minSize;
+			JOptionPane.showMessageDialog(null, "Your house can not be smaller than 10 kvm or larger than 1000 kvm \n You've been assigned a default value");
 		}
 		return size;
 	}

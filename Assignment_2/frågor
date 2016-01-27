@@ -1,0 +1,7 @@
+1. Konstruktorn anropas när koden körs. Antingen gör man en egen konstruktor eller så skapas en i "default läge". I konstruktorn kan man initiera olika
+attribut. Konstuktorn har alltid samma namn som classen. Det går även att lägga till inparametrar. 
+2. Instansvariabler är minnesplatser som reserveras i systemet med olika storlek beroende på typ. Det finns String, integer, double, float, decimal, byte 
+och char. 
+3. Instansmetoder är metoder med en inparameter. 
+4. En variabel som deklareras som final håller alltid samma värde och kan endast initieras en gång. 
+5. Om man deklarerar variabel som public kan den nås utanför klassen. Deklareras den som private går den endast att nå inom klassen. 
