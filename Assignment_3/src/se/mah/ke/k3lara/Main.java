@@ -26,7 +26,7 @@ public class Main extends JFrame {
 	private JTextField txtPrice;
 	private JTextField txtSize;
 	private int setPrice = 0;
-	private int setSize = 0;
+	private int setSize;
 	private String setColor = "";
 	
 	
@@ -62,44 +62,56 @@ public class Main extends JFrame {
 		contentPane.setLayout(null);
 		
 		JTextArea bikeList = new JTextArea();
-		bikeList.setBounds(15, 221, 174, 208);
+		bikeList.setEditable(false);
+		bikeList.setBounds(15, 221, 418, 208);
 		contentPane.add(bikeList);
 		
 		JComboBox cmbColor = new JComboBox(Colors.values());
 		cmbColor.setBounds(79, 111, 146, 26);
 		contentPane.add(cmbColor);
 		
-		JButton btnSaveBike = new JButton("New button");
+		JButton btnSaveBike = new JButton("Save");
 		btnSaveBike.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(txtPrice.getText().isEmpty() || txtSize.getText().isEmpty()){
 					
-					JOptionPane.showMessageDialog(null, "you have to price it right");
+					JOptionPane.showMessageDialog(null, "You have to fill out both price and size.");
 				}
 				else{
+					_setPrice();
+					_setSize();
 				
-				_setPrice();
-				_setSize();
+				
+				if(setSize >= Constants.MIN_SIZE && setSize <= Constants.MAX_SIZE && setPrice <= Constants.MAX_PRICE)
+				{
 				setColor = cmbColor.getSelectedItem().toString();
-				Bike b = new Bike(setColor,setPrice,setSize);
+				Bike b = new Bike(setColor,setSize,setPrice);
 				display.addBike(b);
 				bikeList.setText("");
 				bikeList.append(display.getAllBikes());
-				
+				txtPrice.setText("");
+				txtSize.setText("");
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Size must be bewteen 8-28 \n      max price is 30,000");
+
 				}
 				
+				
+				}
 			}
 		});
 		btnSaveBike.setBounds(318, 176, 115, 29);
 		contentPane.add(btnSaveBike);
 		
 		txtPrice = new JTextField();
-		txtPrice.setBounds(79, 69, 146, 26);
+		txtPrice.setBounds(79, 27, 146, 26);
 		contentPane.add(txtPrice);
 		txtPrice.setColumns(10);
 		
 		txtSize = new JTextField();
-		txtSize.setBounds(79, 27, 146, 26);
+		txtSize.setBounds(79, 69, 146, 26);
 		contentPane.add(txtSize);
 		txtSize.setColumns(10);
 		
@@ -114,14 +126,6 @@ public class Main extends JFrame {
 		JLabel lblColor = new JLabel("Color:");
 		lblColor.setBounds(15, 114, 49, 20);
 		contentPane.add(lblColor);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(221, 245, 212, 56);
-		contentPane.add(scrollPane);
-		
-		JList list = new JList();
-		list.setVisibleRowCount(5);
-		scrollPane.setColumnHeaderView(list);
 
 		
 	}

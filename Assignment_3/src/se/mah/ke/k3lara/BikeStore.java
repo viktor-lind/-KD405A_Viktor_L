@@ -5,28 +5,20 @@ import java.util.ArrayList;
 public class BikeStore{
 	private ArrayList<Bike> bikes = new ArrayList<Bike>();
 	
-	
-	
-	public BikeStore(){
-	
-		
-	}
-
 	public String getAllBikes()
 	{
-		String s = "";
+		String line = "";
 		for (Bike bike : bikes) {
-			s = s + "Color: "+ bike.getColor() + " Price: " + bike.getPrice() + " Size: " + bike.getSize() + "\n";
+			line = line + "Bike nr " + bikes.indexOf(bike) + ":      " + "Color: "+ bike.getColor() + "       Price: " + bike.getPrice() + "       Size: " + bike.getSize() + "\n";
 		}
-		return s;
+		return line;
 		
 		
 	}
-	public void addBike(Bike s){
+	public void addBike(Bike bikes){
 		
-		this.bikes.add(s);
-		
-	
+		this.bikes.add(bikes);
+
 	}
 
 }
