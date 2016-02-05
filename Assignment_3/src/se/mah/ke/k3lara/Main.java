@@ -27,7 +27,9 @@ public class Main extends JFrame {
 	private JTextField txtSize;
 	private int setPrice = 0;
 	private int setSize;
-	private String setColor = "";
+	private String setColor;
+	private JTextField txtColor;
+
 	
 	
 
@@ -55,7 +57,7 @@ public class Main extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 484, 512);
+		setBounds(100, 100, 394, 512);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -63,34 +65,38 @@ public class Main extends JFrame {
 		
 		JTextArea bikeList = new JTextArea();
 		bikeList.setEditable(false);
-		bikeList.setBounds(15, 221, 418, 208);
+		bikeList.setBounds(15, 221, 342, 208);
 		contentPane.add(bikeList);
 		
-		JComboBox cmbColor = new JComboBox(Colors.values());
-		cmbColor.setBounds(79, 111, 146, 26);
-		contentPane.add(cmbColor);
+		txtColor = new JTextField();
+		txtColor.setBounds(79, 111, 146, 26);
+		contentPane.add(txtColor);
+		txtColor.setColumns(10);
 		
 		JButton btnSaveBike = new JButton("Save");
 		btnSaveBike.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(txtPrice.getText().isEmpty() || txtSize.getText().isEmpty()){
+				if(txtPrice.getText().isEmpty() || txtSize.getText().isEmpty() || txtColor.getText().isEmpty()){
 					
-					JOptionPane.showMessageDialog(null, "You have to fill out both price and size.");
+					JOptionPane.showMessageDialog(null, "You have to fill out price, size and color.");
 				}
 				else{
 					_setPrice();
 					_setSize();
+					_setColor();
+					
 				
 				
 				if(setSize >= Constants.MIN_SIZE && setSize <= Constants.MAX_SIZE && setPrice <= Constants.MAX_PRICE)
 				{
-				setColor = cmbColor.getSelectedItem().toString();
+				/**setColor = cmbColor.getSelectedItem().toString();*/
 				Bike b = new Bike(setColor,setSize,setPrice);
 				display.addBike(b);
 				bikeList.setText("");
 				bikeList.append(display.getAllBikes());
 				txtPrice.setText("");
 				txtSize.setText("");
+				txtColor.setText("");
 				}
 				else
 				{
@@ -102,7 +108,7 @@ public class Main extends JFrame {
 				}
 			}
 		});
-		btnSaveBike.setBounds(318, 176, 115, 29);
+		btnSaveBike.setBounds(56, 176, 301, 29);
 		contentPane.add(btnSaveBike);
 		
 		txtPrice = new JTextField();
@@ -126,7 +132,23 @@ public class Main extends JFrame {
 		JLabel lblColor = new JLabel("Color:");
 		lblColor.setBounds(15, 114, 49, 20);
 		contentPane.add(lblColor);
+		
+		JButton btnColor = new JButton("Check Color");
+		btnColor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				for(int i = 0; i < Constants.OK_COLORS.length; i++){
+					if(Constants.OK_COLORS[i].equals(txtColor.getText())){
+						JOptionPane.showMessageDialog(null, "Color in stock!");
+	                    break;						
+					}
+				}
+				
 
+			}
+		});
+		btnColor.setBounds(240, 110, 117, 29);
+		contentPane.add(btnColor);
+		
 		
 	}
 	private void _setPrice(){
@@ -137,5 +159,18 @@ public class Main extends JFrame {
 	private void _setSize(){
 		String text = txtSize.getText();
 		setSize = Integer.parseInt(text);
+	}
+	private void _setColor(){
+		for(int i = 0; i < Constants.OK_COLORS.length; i++){
+			if(Constants.OK_COLORS[i].equals(txtColor.getText())){
+				setColor = txtColor.getText();	
+				break;
+			}
+			else{
+				setColor = "out of stock";
+			}
+			
+		}
+		System.out.println(setColor);
 	}
 }
