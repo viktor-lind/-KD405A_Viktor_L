@@ -57,7 +57,7 @@ public class Main extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 394, 512);
+		setBounds(100, 100, 776, 512);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -72,6 +72,10 @@ public class Main extends JFrame {
 		txtColor.setBounds(79, 111, 146, 26);
 		contentPane.add(txtColor);
 		txtColor.setColumns(10);
+		
+		JList list = new JList(display.bikes.toArray());
+		list.setBounds(397, 221, 328, 208);
+		contentPane.add(list);
 		
 		JButton btnSaveBike = new JButton("Save");
 		btnSaveBike.addActionListener(new ActionListener() {
@@ -94,6 +98,7 @@ public class Main extends JFrame {
 				display.addBike(b);
 				bikeList.setText("");
 				bikeList.append(display.getAllBikes());
+				
 				txtPrice.setText("");
 				txtSize.setText("");
 				txtColor.setText("");
@@ -148,6 +153,8 @@ public class Main extends JFrame {
 		});
 		btnColor.setBounds(240, 110, 117, 29);
 		contentPane.add(btnColor);
+		
+		
 		
 		
 	}

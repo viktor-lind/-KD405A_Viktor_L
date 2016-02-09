@@ -3,7 +3,7 @@ package se.mah.ke.k3lara;
 import java.util.ArrayList;
 
 public class BikeStore{
-	private ArrayList<Bike> bikes = new ArrayList<Bike>();
+	public ArrayList<Bike> bikes = new ArrayList<Bike>();
 	
 	public String getAllBikes()
 	{
