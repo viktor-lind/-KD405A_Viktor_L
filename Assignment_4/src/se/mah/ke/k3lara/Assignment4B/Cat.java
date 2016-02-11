@@ -10,8 +10,12 @@ public class Cat extends Mammal {
 	}
 	/**String method that returns string with information about current animal*/
 	public String getInfo(){
+		if(friendlyName.equals("")){
+			setFriendlyName("Noname");
+		}
+		
 		String s = "The cat named " + getFriendlyName() + " ("+"latin name: " + latinName.toString()+ ")" + " nurses for " + gestationTime + " months" + " and has " + getNumberOfLifes() + " lives.";
-		 
+		
 		return s;
 	}
 	

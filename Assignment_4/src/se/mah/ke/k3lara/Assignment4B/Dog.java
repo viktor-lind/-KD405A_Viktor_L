@@ -23,6 +23,9 @@ public class Dog extends Mammal {
 		else{
 			isStupid = "smart";
 		}
+		if(friendlyName.equals("")){
+			setFriendlyName("Noname");
+		}
 		String s = "The dog named " + getFriendlyName() + " (" + "latin name: " + latinName.toString() + ")" + " nurses for " + gestationTime + " months and is " + isStupid;
 		return s;
 	}

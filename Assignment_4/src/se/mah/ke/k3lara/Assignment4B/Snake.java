@@ -23,7 +23,10 @@ public class Snake extends Animal {
 		else{
 			poison = "harmless";
 		}
-		String info = "A snake named " + getFriendlyName() + " (" + "lat " + latinName.toString() + ")" + " is " + poison;
+		if(friendlyName.equals("")){
+			setFriendlyName("Noname");
+		}
+		String info = "A snake named " + getFriendlyName() + " (" + "latin name: " + latinName.toString() + ")" + " is " + poison;
 	return info;	
 	}
 
