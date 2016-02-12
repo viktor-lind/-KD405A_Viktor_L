@@ -44,7 +44,7 @@ public class AnimalGUI extends JFrame {
 		txtAnimals.setBounds(0, 0, 586, 244);
 		contentPane.add(txtAnimals);
 		ArrayList<Animal> Animals = new ArrayList<Animal>();
-		Animals.add(new Dog("Canis", 34, true, ""));
+		Animals.add(new Dog("Canis", 34, true));
 		Animals.add(new Snake("Vipera berus", true, "Huggorm"));
 		Animals.add(new Cat("Felis silvestris catus", 2, 9, "Frasse"));
 		Animals.add(new Dog("Canis", 2, false, "Sven"));
