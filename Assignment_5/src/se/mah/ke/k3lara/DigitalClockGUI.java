@@ -134,11 +134,11 @@ public class DigitalClockGUI extends JFrame {
 		
 		clock = new ClockLogic(this);
 	}
-	
+	/**Method to change time label*/
 	public void setTimeOnLabel(String time){
 		lblTime.setText(time);
 	}
-		
+		/**Method to activate alarm*/
 	public void activateAlarm(boolean activate){
 		alarm = activate;
 		if(alarm == true){
@@ -148,11 +148,12 @@ public class DigitalClockGUI extends JFrame {
 		
 		
 	}
+	/**Set temporary hour variable*/
 	private void _setHour(){
 		String text = txtHour.getText();
 		hour = Integer.parseInt(text);
 	}
-	
+	/**Set temporary minute variable*/
 	private void _setMinute(){
 		String text = txtMinute.getText();
 		minute = Integer.parseInt(text);

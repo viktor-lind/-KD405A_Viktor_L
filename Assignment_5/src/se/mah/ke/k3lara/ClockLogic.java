@@ -22,7 +22,7 @@ public class ClockLogic {
 			
 		
 	}
-	
+	/**set alarm variables*/
 	public void setAlarm(int hour, int minute){
 		this.alarmHour = hour;
 		this.alarmMinute = minute;
@@ -35,7 +35,7 @@ public class ClockLogic {
 		alarmMinute = 61;
 		System.out.println(alarmHour + " " + alarmMinute);
 	}
-	
+	/**thread class to update gui and check clock variables*/
 	public class ClockThread extends Thread{
 		public void run(){
 			while(true){
