@@ -35,7 +35,7 @@ public class ClockLogic {
 		alarmMinute = 61;
 		System.out.println(alarmHour + " " + alarmMinute);
 	}
-	/**thread class to update gui and check clock variables*/
+	/**thread class to update GUI and check clock variables*/
 	public class ClockThread extends Thread{
 		public void run(){
 			while(true){
@@ -86,6 +86,16 @@ public class ClockLogic {
 						System.out.print(test);
 					}
 					}
+				if(time2.equals(alarmHour + ":" + alarmMinute)){
+					clockGui.activateAlarm(true);
+					boolean test = true;
+					System.out.println(test);
+				}
+				else{
+					clockGui.activateAlarm(false);
+					boolean test = false;
+					System.out.print(test);
+				}
 			}
 		}
 		

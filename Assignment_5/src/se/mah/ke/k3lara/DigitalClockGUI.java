@@ -18,6 +18,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 
 public class DigitalClockGUI extends JFrame {
 
@@ -53,6 +54,8 @@ public class DigitalClockGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public DigitalClockGUI() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(DigitalClockGUI.class.getResource("/se/mah/ke/k3lara/Shopping-alarm-clock-icon.png")));
+		setTitle("Alarm clock");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 810, 300);
 		contentPane = new JPanel();
