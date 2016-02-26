@@ -91,8 +91,8 @@ public class SkanetrafikenGUI extends JFrame {
 		btnSearchAll = new JButton("Search");
 		btnSearchAll.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				
+				txtToResult.setText("Searching");
+				new j1().start();
 				
 			}
 		});
@@ -134,9 +134,10 @@ public class SkanetrafikenGUI extends JFrame {
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				txtareaResult.setText("Searching");
+				/**Set text string first letter to uppercase*/
 				stationName = gui.txtSearch.getText();
 				stationName = stationName.substring(0,1).toUpperCase() + stationName.substring(1).toLowerCase();
-				System.out.println(stationName);
+				/**System.out.println(stationName);*/
 				
 				new j().start();
 				
@@ -167,4 +168,21 @@ public class SkanetrafikenGUI extends JFrame {
 			
 		}
 	}
-}
+	private class j1 extends Thread{
+		@Override
+		public void run(){
+			String searchURL = Constants.getURL(txtFrom.getText(),txtToStation.getText(),1); //Malmö C = 80000,  Lund C, 81216 Malmö Gatorg 80100, Hässleholm C 93070
+			
+			
+			Journeys journeys = Parser.getJourneys(searchURL);
+			txtToResult.setText("");
+			for (Journey journey : journeys.getJourneys()) {
+				txtToResult.append(journey.getStartStation()+" - ");
+				txtToResult.append(journey.getEndStation().getStationName());
+				String time = journey.getDepDateTime().get(Calendar.HOUR_OF_DAY)+":"+journey.getDepDateTime().get(Calendar.MINUTE);
+				txtToResult.append(" Departs " + time +" that is in "+journey.getTimeToDeparture()+ " minutes. And it is "+journey.getDepTimeDeviation()+" min late");
+			} 
+		}
+		}
+	}
+
